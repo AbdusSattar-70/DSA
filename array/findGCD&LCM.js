@@ -27,5 +27,5 @@ const findLCM = (arr) =>{
   return lcmResult;
 }
 
-console.log(findGCD([1,2,3,4,5]))
-console.log(findLCM([1,2,3,4,5]))
+console.log(findGCD([3,5,6]))
+console.log(findLCM([3,5,6]))
