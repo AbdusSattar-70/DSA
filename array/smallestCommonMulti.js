@@ -10,24 +10,24 @@
 // of both 1 and 3 that is also evenly divisible by all numbers
 // between 1 and 3. The answer here would be 6.
 
-const gcd = (a,b) =>{
-  while(b !== 0){
-    let reminder = a % b;
+const gcd = (a, b) => {
+  while (b !== 0) {
+    const reminder = a % b;
     a = b;
     b = reminder;
   }
- return a;
-}
+  return a;
+};
 
-const lcm = (a,b) => (a * b) / gcd(a,b);
+const lcm = (a, b) => (a * b) / gcd(a, b);
 
 const SmallestCommonMulti = (arr) => {
-  arr.sort((a,b)=> a-b);
+  arr.sort((a, b) => a - b);
   let smallestCom = arr[0];
-  for(let i = arr[0] + 1; i <= arr[1]; i++){
-    smallestCom = lcm(smallestCom,i);
+  for (let i = arr[0] + 1; i <= arr[1]; i++) {
+    smallestCom = lcm(smallestCom, i);
   }
   return smallestCom;
-}
+};
 
-console.log(SmallestCommonMulti([10,0]));
+console.log(SmallestCommonMulti([10, 0]));

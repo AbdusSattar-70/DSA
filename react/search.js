@@ -14,24 +14,24 @@ const BookSearch = ({ books }) => {
     setSearchCriteria({ ...searchCriteria, [name]: value });
   };
 
-  const filterBooks = () => {
-    return books.filter((book) => {
-      const { author, title, country, language, year } = searchCriteria;
-      const lowerAuthor = book.author.toLowerCase();
-      const lowerTitle = book.title.toLowerCase();
-      const lowerCountry = book.country.toLowerCase();
-      const lowerLanguage = book.language.toLowerCase();
-      const bookYear = book.year.toString();
+  const filterBooks = () => books.filter((book) => {
+    const {
+      author, title, country, language, year,
+    } = searchCriteria;
+    const lowerAuthor = book.author.toLowerCase();
+    const lowerTitle = book.title.toLowerCase();
+    const lowerCountry = book.country.toLowerCase();
+    const lowerLanguage = book.language.toLowerCase();
+    const bookYear = book.year.toString();
 
-      return (
-        lowerAuthor.includes(author.toLowerCase().trim()) &&
-        lowerTitle.includes(title.toLowerCase().trim()) &&
-        lowerCountry.includes(country.toLowerCase().trim()) &&
-        lowerLanguage.includes(language.toLowerCase().trim()) &&
-        bookYear.includes(year.trim())
-      );
-    });
-  };
+    return (
+      lowerAuthor.includes(author.toLowerCase().trim())
+        && lowerTitle.includes(title.toLowerCase().trim())
+        && lowerCountry.includes(country.toLowerCase().trim())
+        && lowerLanguage.includes(language.toLowerCase().trim())
+        && bookYear.includes(year.trim())
+    );
+  });
 
   const renderBooks = () => {
     const filteredBooks = filterBooks();
