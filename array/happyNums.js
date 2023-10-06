@@ -9,19 +9,19 @@
 // Implement a function that returns true if the number is happy,
 //  or false if not.
 
-const findHappyNum = (n) =>{
+const findHappyNum = (n) => {
   let sum = 0;
   while (n > 0) {
     // get rightmost digit of given number
-    let digit = n % 10;
+    const digit = n % 10;
     sum += digit * digit;
     // update given num to get next digit
     n = Math.floor(n / 10);
   }
   return sum;
-}
+};
 
-const isHappy = (n) =>{
+const isHappy = (n) => {
   // to detect cycle
   const seen = new Set();
 
@@ -30,6 +30,6 @@ const isHappy = (n) =>{
     n = findHappyNum(n);
   }
   return n === 1;
-}
+};
 
-console.log(isHappy(19))
+console.log(isHappy(19));

@@ -7,45 +7,35 @@
 // Return the correct string according to this table which lists the
 // strokes in order of priority; top (highest) to bottom (lowest):
 
-// Strokes	Return
-// 1	"Hole-in-one!"
-// <= par - 2	"Eagle"
-// par - 1	"Birdie"
-// par	"Par"
-// par + 1	"Bogey"
-// par + 2	"Double Bogey"
-// >= par + 3	"Go Home!"
-// par and strokes will always be numeric and positive.
-
-const golfCode =  (par, strokes) => {
+const golfCode = (par, strokes) => {
   let message;
   switch (true) {
-    case (strokes === 1) :
-      message = "Hole-in-one!"
+    case (strokes === 1):
+      message = 'Hole-in-one!';
       break;
-    case (strokes <= par - 2) :
-      message = "Eagle"
+    case (strokes <= par - 2):
+      message = 'Eagle';
       break;
-    case (strokes === par - 1) :
-      message = "Birdie"
+    case (strokes === par - 1):
+      message = 'Birdie';
       break;
-    case (strokes === par) :
-      message = "Par"
+    case (strokes === par):
+      message = 'Par';
       break;
-    case (strokes === par + 1) :
-      message = "Bogey"
+    case (strokes === par + 1):
+      message = 'Bogey';
       break;
-    case (strokes === par + 2) :
-      message = "Double Bogey"
+    case (strokes === par + 2):
+      message = 'Double Bogey';
       break;
-    case (strokes >= par + 3) :
-      message = "Go Home!"
+    case (strokes >= par + 3):
+      message = 'Go Home!';
       break;
     default:
-      message = "Unexpected input";
+      message = 'Unexpected input';
       break;
   }
   return message;
-}
+};
 
-console.log(golfCode(5,9))
+console.log(golfCode(5, 9));
