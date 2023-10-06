@@ -24,7 +24,7 @@ const lcm = (a, b) => (a * b) / gcd(a, b);
 const SmallestCommonMulti = (arr) => {
   arr.sort((a, b) => a - b);
   let smallestCom = arr[0];
-  for (let i = arr[0] + 1; i <= arr[1]; i++) {
+  for (let i = arr[0] + 1; i <= arr[1]; i += 1) {
     smallestCom = lcm(smallestCom, i);
   }
   return smallestCom;

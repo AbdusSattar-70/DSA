@@ -12,7 +12,7 @@ const gcd = (a, b) => {
 
 const findGCD = (arr) => {
   let gcdResult = arr[0];
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i += 1) {
     gcdResult = gcd(gcdResult, arr[i]);
   }
   return gcdResult;
@@ -21,7 +21,7 @@ const findGCD = (arr) => {
 const findLCM = (arr) => {
   const lcm = (a, b) => (a * b) / gcd(a, b);
   let lcmResult = arr[0];
-  for (let i = 1; i < arr.length; i++) {
+  for (let i = 1; i < arr.length; i += 1) {
     lcmResult = lcm(lcmResult, arr[i]);
   }
   return lcmResult;
