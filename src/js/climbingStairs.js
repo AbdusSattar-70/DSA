@@ -5,22 +5,6 @@
 * LeetCode: https://leetcode.com/problems/climbing-stairs/description/?envType=problem-list-v2&envId=dynamic-programming
 */
 
-/* function climbStairs(n,memo = {}) {
-    // Check if result is already cached
-    if (memo[n] !== undefined) return memo[n];
-
-    // Base cases
-    if (n === 0 || n === 1) return 1;
-
-    // Recursive case with memoization
-    memo[n] = climbStairs(n - 1,memo) + climbStairs(n - 2,memo);
-
-    return memo[n];
-}
-
-console.log(climbStairs(1145));
- */
-
 function climbStairs(n) {
   // Base Cases
     if (n === 0 || n === 1) return 1;
@@ -40,4 +24,19 @@ function climbStairs(n) {
     return ways_n;
 }
 
+
+function climbStairs2(n,memo = {}) {
+    // Check if result is already cached
+    if (memo[n] !== undefined) return memo[n];
+
+    // Base cases
+    if (n === 0 || n === 1) return 1;
+
+    // Recursive case with memoization
+    memo[n] = climbStairs(n - 1,memo) + climbStairs(n - 2,memo);
+
+    return memo[n];
+}
+
+// console.log(climbStairs2(1145));  // This will be very worse
 // console.log(climbStairs(1145));  // This will be very fast
