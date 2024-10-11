@@ -27,7 +27,7 @@ function climbStairs(n) {
 
 function climbStairs2(n,memo = {}) {
     // Check if result is already cached
-    if (memo[n] !== undefined) return memo[n];
+    if (n in memo) return memo[n];
 
     // Base cases
     if (n === 0 || n === 1) return 1;
@@ -38,5 +38,5 @@ function climbStairs2(n,memo = {}) {
     return memo[n];
 }
 
-// console.log(climbStairs2(1145));  // This will be very worse
-// console.log(climbStairs(1145));  // This will be very fast
+console.log(climbStairs2(1145));  // This will be very worse
+console.log(climbStairs(1145));  // This will be very fast
