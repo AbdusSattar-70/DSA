@@ -19,5 +19,4 @@ const removeElements = (nums, val) => {
     return k;
 };
 console.log(removeElements([2, 2, 2], 2)); // output: 0;
-console.log(removeElements([2, 2, 3, 5, 5, 5, 5], 2)); // output: 4;
-console.log(removeElements([0], 2)); // output: 0;
+console.log(removeElements([2, 2, 3, 5, 5, 5, 5], 2)); // output: 5;
