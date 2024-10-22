@@ -36,3 +36,25 @@ const FnsArr = [
 const x = 4;
 const result = compositFn(FnsArr);
 console.log(result(x)); // 65
+/*
+Intuition
+The compose function takes an array of functions and returns a new function
+that applies each function in the array, from right to left, to the input value.
+This is useful when we want to apply a series of transformations to some input data.
+
+Approach
+The compose function first checks if the input array is empty, and
+returns a function that simply returns its input if it is. Otherwise, it uses the reduceRight method of the array to apply the functions in reverse order. reduceRight is used instead of reduce to ensure that the functions are applied from right to left.
+
+What is Composition
+Composition simply means the combination of two or more functions to form
+a new function. When you compose two functions, you apply one function
+to the output of the other function.
+
+For example, if you have two functions f(x) and g(x),
+their composition would be (f∘g)(x) = f(g(x)).
+This means that you first apply the function g(x) to the input x, and
+then apply the function f(x) to the output of g(x).
+
+Complexity: runtime: o(n), space: o(1);
+*/
