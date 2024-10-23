@@ -1,9 +1,6 @@
 "use strict";
-const swap = (array, firstIndex, secondIndex) => {
-    const temp = array[firstIndex];
-    array[firstIndex] = array[secondIndex];
-    array[secondIndex] = temp;
-    return array;
+const swap = (arr, firsIDX, secIDX) => {
+    [arr[firsIDX], arr[secIDX]] = [arr[secIDX], arr[firsIDX]];
 };
 const indexOfMinimum = (array, startIndex) => {
     let minValue = array[startIndex];

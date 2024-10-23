@@ -1,17 +1,10 @@
-type Swap = (
-  array: number[],
-  firstIndex: number,
-  secondIndex: number
-) => number[];
+type Swap = (array: number[], firstIndex: number, secondIndex: number) => void;
 
 type IndexOfMinimum = (a: number[], strIdx: number) => number;
 type SelectionSort = (a: number[]) => number[];
 
-const swap: Swap = (array, firstIndex, secondIndex) => {
-  const temp = array[firstIndex];
-  array[firstIndex] = array[secondIndex];
-  array[secondIndex] = temp;
-  return array;
+const swap: Swap = (arr, firsIDX, secIDX) => {
+  [arr[firsIDX], arr[secIDX]] = [arr[secIDX], arr[firsIDX]];
 };
 
 const indexOfMinimum: IndexOfMinimum = (array, startIndex) => {
