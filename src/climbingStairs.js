@@ -1,42 +1,42 @@
-/*
-* You are climbing a staircase. It takes n steps to reach the top.
-* Each time you can either climb 1 or 2 steps.
-* In how many distinct ways can you climb to the top?
-* LeetCode: https://leetcode.com/problems/climbing-stairs/description/?envType=problem-list-v2&envId=dynamic-programming
-*/
-
-function climbStairs(n) {
-  // Base Cases
-    if (n === 0 || n === 1) return 1;
-
-    let ways_0 = 1;  // Ways to reach step 0
-    let ways_1 = 1;  // Ways to reach step 1
-    let ways_n;      // Final number of ways to reach step n
-
-    for (let i = 2; i <= n; i++) {
-      // Current ways to reach step i
-        ways_n = ways_0 + ways_1;
-      // Move one step forward by updating the previous 2 steps
-        ways_0 = ways_1;
-        ways_1 = ways_n;
-    }
-
-    return ways_n;
+// Helper function: Multiply two 2x2 matrices
+const multiplyMatrices = (a, b) => {
+  return [
+    [a[0][0] * b[0][0] + a[0][1] * b[1][0], a[0][0] * b[0][1] + a[0][1] * b[1][1]],
+    [a[1][0] * b[0][0] + a[1][1] * b[1][0], a[1][0] * b[0][1] + a[1][1] * b[1][1]]
+  ];
 }
 
+// Helper function: Perform matrix exponentiation (log n)
+const matrixPower = (matrix, n) => {
+  if (n === 1) return matrix;
 
-function climbStairs2(n,memo = {}) {
-    // Check if result is already cached
-    if (n in memo) return memo[n];
-
-    // Base cases
-    if (n === 0 || n === 1) return 1;
-
-    // Recursive case with memoization
-    memo[n] = climbStairs(n - 1,memo) + climbStairs(n - 2,memo);
-
-    return memo[n];
+  if (n % 2 === 0) {
+    const halfPower = matrixPower(matrix, Math.floor(n / 2));
+    return multiplyMatrices(halfPower, halfPower);
+  } else {
+    return multiplyMatrices(matrix, matrixPower(matrix, n - 1));
+  }
 }
 
-console.log(climbStairs2(1145));  // This will be very worse
-console.log(climbStairs(1145));  // This will be very fast
+// Function to find the number of distinct ways to climb n steps using matrix exponentiation
+const climbStairs = (n) => {
+  if (n === 0) return 1; // Base case: 1 way to stay at the ground
+  if (n === 1) return 1; // Base case: 1 way to reach the first step
+
+  const baseMatrix = [
+    [1, 1],
+    [1, 0]
+  ];
+
+  // We need F(n+1) Fibonacci number for climbStairs(n), so calculate matrix^n
+  const resultMatrix = matrixPower(baseMatrix, n);
+
+  return resultMatrix[0][0]; // This will be F(n+1), i.e., the number of distinct ways to reach n steps
+}
+
+// Test Case:
+
+console.log(climbStairs(2));  // Output: 2 ways
+console.log(climbStairs(3));  // Output: 3 ways
+console.log(climbStairs(4));  // Output: 5 ways
+console.log(climbStairs(5));  // Output: 8 ways
